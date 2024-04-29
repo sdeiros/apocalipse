@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apocalipse</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #dddddd;
+    margin-top: 50px;
+    background-color: rgb(41, 0, 0);
+  }
+  #countdown {
+    position: relative;
+    font-size: 32px;
+    font-weight: bold;
+    color: #dddddd;
+    top: 26vh;
+  }
+  @media (max-width: 768px) {
+    #countdown {
+      font-size: 22px;
+    }
+  }
+
+  ::selection {
+    background-color: #810000;
+    color: #ffffff;
+}
+
+</style>
+</head>
+<body>
+
+<h3>APOCALIPSE</h3>
+<div id="countdown"></div>
+
+<img class="foto" id="randomImage" src="" alt="Imagem Aleatória">
+  
+<script>
+  function countdown() {
+    const targetDate = new Date('2024-07-06T16:00:00');
+    const now = new Date().getTime();
+    const timeRemaining = targetDate - now;
+
+    if (timeRemaining <= 0) {
+      document.getElementById('countdown').innerHTML = 'O apocalipse já começou. Vá para este ponto de segurança!';
+    } else {
+      let hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+      let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+      // Adicionando zero à esquerda para os minutos e segundos, se necessário
+      minutes = (minutes < 10) ? "0" + minutes : minutes;
+      seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+      document.getElementById('countdown').innerHTML = `${hours}:${minutes}:${seconds}`;
+    }
+  }
+
+  setInterval(countdown, 1000);
+
+  countdown();
+
+   function getRandomImage() {
+      const imageFolder = '/img'; // Substitua pelo caminho da sua pasta de imagens
+      const images = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '06.jpg', '07.jpg', '08.jpg', '09.jpg', '10.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg', '21.jpg']; // Lista das imagens na pasta
+
+      const randomIndex = Math.floor(Math.random() * images.length);
+      const randomImage = images[randomIndex];
+      const imagePath = `${imageFolder}/${randomImage}`;
+
+      document.getElementById('randomImage').src = imagePath;
+    }
+
+    setInterval(countdown, 1000);
+    getRandomImage();
+</script>
+
+<!-- <p>ponto de segurança</p> -->
+
+<!-- Default Statcounter code for Apocalipse
+https://sdeiros.github.io/apocalipse/ -->
+<script type="text/javascript">
+var sc_project=12993713; 
+var sc_invisible=0; 
+var sc_security="b48f7cf1"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/12993713/0/b48f7cf1/0/" alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+</body>
+</html>
